@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 245, 245, 245;
+  --background-end-rgb: 245, 245, 245;
+  --adm-color-primary: 224 231 255;
+  --safe-padding-top: env(safe-area-inset-top, 0px);
+  --safe-padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+} */
+
+body {
+  height: 100vh;
+  color: rgb(0, 0, 0);
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  padding-top: var(--safe-padding-top, 0px);
+  /* --safe-padding-top: var(--safe-padding-top, 0px);
+  --safe-padding-bottom: var(--safe-padding-bottom, 0px);
+  /* padding-bottom: var(--safe-padding-bottom, 0px); */
+}
+
+#bottom {
+  position: fixed;
+  height: calc(6vh+ (var(--safe-padding-bottom)));
+  top: calc(100vh - 6vh - var(--safe-padding-bottom));
+  width: 100vw;
+  background-color: rgb(var(--foreground-rgb));
+  padding-bottom: calc(
+    6vh + (var(--safe-padding-bottom)) - (var(--safe-padding-bottom))
+  );
+}
+
+#top {
+  position: fixed;
+  z-index: 100;
+  background-color: rgb(var(--background-start-rgb));
+  top: 0;
+  width: 100vw;
+  height: calc(6vh + (var(--safe-padding-top)));
+  padding-top: var(--safe-padding-top);
+  
+}
+
+#toppayload {
+  width: 100vw;
+  background-color: rgb(var(--background-start-rgb));
+  height: calc(6vh);
+}
