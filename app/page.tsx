@@ -19,6 +19,7 @@ import "./globals.css";
 import { SmallTop } from "./components/layout/small_top";
 import { BitTop } from "./components/layout/big_top";
 import { TabBarBottom } from "./components/layout/tabbar_bottom";
+import ProfileEdit from "./components/profile_edit";
 
 function Content() {
   return (
@@ -30,6 +31,7 @@ function Content() {
         <Route path="/student/detail" element={<StudentDetail />} />
         <Route path="/me" element={<Me />} />
         <Route path="/me/income" element={<Income />} />
+        <Route path="/me/profile_edit" element={<ProfileEdit />} />
       </Routes>
     </div>
   );

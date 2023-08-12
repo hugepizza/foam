@@ -1,6 +1,7 @@
 import { Avatar, Card, List, Switch } from "antd-mobile";
 import { PayCircleOutline } from "antd-mobile-icons";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useProfileStore } from "../store/profile";
 
 export default function Me() {
   return (
@@ -28,18 +29,19 @@ function FunctionList() {
   );
 }
 function Profile() {
+  const navigate = useNavigate();
+  const profileStore = useProfileStore();
   return (
     <List mode="card" style={{ marginTop: "0px" }}>
-      <List.Item>
+      <List.Item
+        onClick={() => {
+          navigate("/me/profile_edit");
+        }}
+      >
         <div className="flex flex-row w-full h-full">
-          <Avatar
-            src={
-              "https://www.dolldivine.com/rinmaru/rinmaru-anime-avatar-creator.jpg"
-            }
-            style={{ "--size": "68px" }}
-          />
+          <Avatar src={profileStore.avatar} style={{ "--size": "68px" }} />
           <div className="flex flex-grow items-center  ml-6 my-3 text-3xl">
-            Lora
+            {profileStore.userName}
           </div>
         </div>
       </List.Item>
