@@ -29,6 +29,8 @@ body {
     )
     rgb(var(--background-start-rgb));
   padding-top: var(--safe-padding-top, 0px);
+
+  
   /* --safe-padding-top: var(--safe-padding-top, 0px);
   --safe-padding-bottom: var(--safe-padding-bottom, 0px);
   /* padding-bottom: var(--safe-padding-bottom, 0px); */
@@ -53,11 +55,14 @@ body {
   width: 100vw;
   height: calc(6vh + (var(--safe-padding-top)));
   padding-top: var(--safe-padding-top);
-  
 }
 
 #toppayload {
   width: 100vw;
   background-color: rgb(var(--background-start-rgb));
   height: calc(6vh);
+}
+
+#avatar {
+  border-radius: 10%;
 }

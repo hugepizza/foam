@@ -2,6 +2,7 @@ import { Avatar, Card, List, Switch } from "antd-mobile";
 import { PayCircleOutline } from "antd-mobile-icons";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useProfileStore } from "../store/profile";
+import ProfileAvatar from "./avatar";
 
 export default function Me() {
   return (
@@ -39,7 +40,7 @@ function Profile() {
         }}
       >
         <div className="flex flex-row w-full h-full">
-          <Avatar src={profileStore.avatar} style={{ "--size": "68px" }} />
+          <ProfileAvatar size={68} />
           <div className="flex flex-grow items-center  ml-6 my-3 text-3xl">
             {profileStore.userName}
           </div>

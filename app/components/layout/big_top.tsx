@@ -9,7 +9,7 @@ export function BitTop() {
       style={{
         height: "8vh",
       }}
-      className="px-4 pb-2 flex flex-col justify-end items-start"
+      className="px-4 pb-2 flex flex-col justify-start items-start"
     >
       <p className="font-bold text-4xl ">
         {pathname.replaceAll("/", "") || "Schedule"}

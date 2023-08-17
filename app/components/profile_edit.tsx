@@ -1,14 +1,96 @@
-import {
-  Avatar,
-  ImageUploadItem,
-  ImageUploader,
-  SpinLoading,
-} from "antd-mobile";
+import { Button, Form, Input, InputRef, SpinLoading, Toast } from "antd-mobile";
 import { useProfileStore } from "../store/profile";
 import Upload from "../upload";
-import { useRef, useState } from "react";
 
+import ProfileAvatar from "./avatar";
+import { useState } from "react";
 export default function ProfileEdit() {
+  return (
+    <div>
+      <AvatarEdit />
+      <InfoEdit />
+    </div>
+  );
+}
+function InfoEdit() {
+  const profileStore = useProfileStore();
+  const [profile, setProfile] = useState<{
+    userName: string;
+    subject: string;
+    from?: string;
+  }>({
+    userName: profileStore.userName,
+    subject: profileStore.subject,
+    from: profileStore.from,
+  });
+  const updateProfile = () => {
+    profileStore.updateUserName(profile.userName || "Foam User");
+    profileStore.updateSubject(profile.subject || "None");
+    profileStore.updateFrom(profile.from);
+    Toast.show({ content: "success" });
+  };
+  return (
+    <div>
+      <Form
+        layout="horizontal"
+        footer={
+          <Button
+            block
+            type="submit"
+            color="default"
+            size="large"
+            onClick={() => {
+              updateProfile();
+            }}
+          >
+            Submit
+          </Button>
+        }
+      >
+        <Form.Header>Edit your infomation</Form.Header>
+        <Form.Item name="name" label="Name">
+          <Input
+            defaultValue={profile.userName}
+            placeholder={"Your Name"}
+            onChange={(e) => {
+              setProfile({
+                ...profile,
+                userName: e,
+              });
+            }}
+          />
+        </Form.Item>
+
+        <Form.Item name="subject" label="Suject">
+          <Input
+            defaultValue={profile.subject}
+            placeholder={"Your Teaching Subject"}
+            onChange={(e) => {
+              setProfile({
+                ...profile,
+                subject: e,
+              });
+            }}
+          />
+        </Form.Item>
+
+        <Form.Item name="from" label="From">
+          <Input
+            defaultValue={profile.from}
+            placeholder={"The country you come from"}
+            onChange={(e) => {
+              setProfile({
+                ...profile,
+                from: e,
+              });
+            }}
+          />
+        </Form.Item>
+      </Form>
+    </div>
+  );
+}
+function AvatarEdit() {
   const profileStore = useProfileStore();
   const [uploading, setUploading] = useState(false);
 
@@ -26,10 +108,6 @@ export default function ProfileEdit() {
           )}
           {!uploading && (
             <>
-              <Avatar
-                src={profileStore.avatar}
-                style={{ "--size": "120px", position: "relative" }}
-              ></Avatar>
               <form>
                 <Upload
                   afterUploaded={({ url }: { url: string }) => {
@@ -39,23 +117,7 @@ export default function ProfileEdit() {
                     setUploading(loading);
                   }}
                 >
-                  <div
-                    style={{
-                      display: "flex",
-                      zIndex: 20,
-                      height: "40px",
-                      width: "120px",
-                      top: "80px",
-                      position: "absolute",
-                      fontSize: "2rem",
-                      color: "rgb(255,255,255)",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      background: "rgba(0,0,0,0.5)",
-                    }}
-                  >
-                    Edit
-                  </div>
+                  <ProfileAvatar size={120} editable></ProfileAvatar>
                 </Upload>
               </form>
             </>
