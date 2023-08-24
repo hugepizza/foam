@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 const key = "Profile";
+
 export interface ProfileStore {
   userName: string;
   avatar: string;
@@ -17,7 +18,7 @@ export interface ProfileStore {
 export const useProfileStore = create<ProfileStore>()(
   persist(
     (set, get) => ({
-      userName: "Lora",
+      userName: "none",
       subject: "none",
       avatar:
         "https://www.dolldivine.com/rinmaru/rinmaru-anime-avatar-creator.jpg",

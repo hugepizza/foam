@@ -1,11 +1,25 @@
 import OSS from "ali-oss";
 import { NextRequest, NextResponse } from "next/server";
+import AWS, {
+  PutObjectCommandInput,
+  PutObjectCommandOutput,
+  S3,
+} from "@aws-sdk/client-s3";
+import { randomUUID } from "crypto";
 
-const client = new OSS({
-  region: process.env.OSS_REGION || "",
-  accessKeyId: process.env.OSS_KEY_ID || "",
-  accessKeySecret: process.env.OSS_KEY_SECRET || "",
-  bucket: process.env.OSS_KEY_BUCKET || "",
+const S3_ACCESS_KEY_ID = process.env.S3_ACCESS_KEY_ID || "";
+const S3_SECRET_ACCESS_KEY = process.env.S3_SECRET_ACCESS_KEY || "";
+const S3_ACCOUNT_ID = process.env.S3_ACCOUNT_ID || "";
+const S3_BUCKET_NAME = process.env.S3_BUCKET_NAME || "";
+const S3_BUCKET_DOMAIN = process.env.S3_BUCKET_DOMAIN || "";
+
+const s3 = new S3({
+  region: "auto",
+  endpoint: `https://${S3_ACCOUNT_ID}.r2.cloudflarestorage.com`,
+  credentials: {
+    accessKeyId: S3_ACCESS_KEY_ID,
+    secretAccessKey: S3_SECRET_ACCESS_KEY,
+  },
 });
 
 async function handle(request: NextRequest) {
@@ -14,9 +28,20 @@ async function handle(request: NextRequest) {
   if (formValue as File) {
     const file = formValue as File;
     const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-    const result = await client.put(`/foam/${file.name}`, buffer);
-    return NextResponse.json(result, { status: 200 });
+    const key = `${randomUUID()}-${file.name}`;
+    s3.putObjectAcl;
+    await uploadToS3({
+      Key: key,
+      Bucket: S3_BUCKET_NAME,
+      Body: Buffer.from(bytes),
+    });
+
+    return NextResponse.json(
+      {
+        url: `https://${S3_BUCKET_DOMAIN}/${key}`,
+      },
+      { status: 200 }
+    );
   }
   return NextResponse.json(
     {},
@@ -26,4 +51,17 @@ async function handle(request: NextRequest) {
   );
 }
 
+async function uploadToS3(
+  obj: PutObjectCommandInput
+): Promise<PutObjectCommandOutput | undefined> {
+  return new Promise((resolve, reject) => {
+    s3.putObject(obj, (err, output) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(output);
+      }
+    });
+  });
+}
 export const POST = handle;

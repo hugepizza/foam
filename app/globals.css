@@ -11,14 +11,6 @@
   --safe-padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-} */
-
 body {
   height: 100vh;
   color: rgb(0, 0, 0);
@@ -28,23 +20,15 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-  padding-top: var(--safe-padding-top, 0px);
-
-  
-  /* --safe-padding-top: var(--safe-padding-top, 0px);
-  --safe-padding-bottom: var(--safe-padding-bottom, 0px);
-  /* padding-bottom: var(--safe-padding-bottom, 0px); */
 }
 
 #bottom {
   position: fixed;
-  height: calc(6vh+ (var(--safe-padding-bottom)));
+  height: 6vh;
   top: calc(100vh - 6vh - var(--safe-padding-bottom));
   width: 100vw;
   background-color: rgb(var(--foreground-rgb));
-  padding-bottom: calc(
-    6vh + (var(--safe-padding-bottom)) - (var(--safe-padding-bottom))
-  );
+  flex-grow: 0;
 }
 
 #top {
@@ -53,8 +37,8 @@ body {
   background-color: rgb(var(--background-start-rgb));
   top: 0;
   width: 100vw;
-  height: calc(6vh + (var(--safe-padding-top)));
-  padding-top: var(--safe-padding-top);
+  height: 6hv;
+  /* margin-top: 2px; */
 }
 
 #toppayload {

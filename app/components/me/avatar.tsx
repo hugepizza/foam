@@ -1,5 +1,5 @@
 import { Avatar } from "antd-mobile";
-import { useProfileStore } from "../store/profile";
+import { useProfileStore } from "../../store/profile";
 import { CSSProperties, useRef } from "react";
 export default function ProfileAvatar({
   size,

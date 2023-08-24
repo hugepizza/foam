@@ -8,22 +8,22 @@ import {
 } from "react-router-dom";
 import enUS from "antd-mobile/es/locales/en-US";
 
-import { ConfigProvider, NavBar, TabBar } from "antd-mobile";
+import { ConfigProvider, NavBar, SafeArea, TabBar } from "antd-mobile";
 import { CalendarOutline, TeamOutline, UserOutline } from "antd-mobile-icons";
-import Me from "./components/me";
-import Income from "./components/income";
-import Students from "./components/students";
-import StudentDetail from "./components/student_detail";
-import Schedule from "./components/schedule";
+import Me from "./components/me/me";
+import Income from "./components/me/income/income";
+import Students from "./components/students/students";
+import StudentDetail from "./components/students/student_detail";
+import Schedule from "./components/schedule/schedule";
 import "./globals.css";
 import { SmallTop } from "./components/layout/small_top";
 import { BitTop } from "./components/layout/big_top";
 import { TabBarBottom } from "./components/layout/tabbar_bottom";
-import ProfileEdit from "./components/profile_edit";
+import ProfileEdit from "./components/me/profile_edit";
 
 function Content() {
   return (
-    <div className="flex-grow">
+    <div className="flex-grow w-screen">
       <Routes>
         <Route path="/" element={<Schedule />} />
         <Route path="/schedule" element={<Schedule />} />
@@ -41,10 +41,12 @@ function Frame() {
   const location = useLocation();
   const { pathname } = location;
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-screen w-screen" id="frame">
+      <SafeArea position="top" />
       {pathname.split("/").length === 2 ? <BitTop /> : <SmallTop></SmallTop>}
       <Content />
       {pathname.split("/").length === 2 && <TabBarBottom />}
+      
     </div>
   );
 }

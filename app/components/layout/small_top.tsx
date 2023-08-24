@@ -1,4 +1,4 @@
-import { NavBar } from "antd-mobile";
+import { NavBar, SafeArea } from "antd-mobile";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export function SmallTop() {
@@ -9,6 +9,10 @@ export function SmallTop() {
   return (
     <div>
       <div className="" id="top">
+        <SafeArea
+          position="top"
+          style={{ background: "rgb(var(--background-start-rgb))" }}
+        />
         <NavBar
           backArrow={true}
           onBack={() => {
