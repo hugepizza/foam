@@ -2,6 +2,8 @@
 
 For tutors to manage their class schedule and students.
 
+A project to practise react.js.
+
 Get Started 🚀
 --- 
 ```bash
@@ -10,16 +12,18 @@ npm run dev
 
 Preview
 ---
-[👉 Demo](not done yet)
+[👉 Demo](https://foam-eta.vercel.app/)
+
+For the best experience, use safaria and then add the page to home screen.
 
 Fearures
 ---
-* Import students
+Storage all data locally.
 
 
 Roadmap
 ---
 - [ ] Import Students
-- [ ] Import Classes
+- [x] Import Classes
 - [ ] Summarize Passed Classes
 - [ ] Record Tuition Payment
