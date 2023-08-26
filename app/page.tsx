@@ -40,17 +40,21 @@ function Content() {
 function Frame() {
   const location = useLocation();
   const { pathname } = location;
+
   return (
     <div className="flex flex-col h-screen w-screen" id="frame">
       <SafeArea position="top" />
       {pathname.split("/").length === 2 ? <BitTop /> : <SmallTop></SmallTop>}
       <Content />
       {pathname.split("/").length === 2 && <TabBarBottom />}
-      
     </div>
   );
 }
 export default function Home() {
+  console.log(
+    "%cSorry for my terrible code 😄",
+    "font-size: 20px; color: blue; "
+  );
   return (
     <MemoryRouter>
       <ConfigProvider locale={enUS}>
