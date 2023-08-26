@@ -11,8 +11,8 @@ import {
   Toast,
 } from "antd-mobile";
 import dayjs from "dayjs";
-import { useState } from "react";
 import customParseFormat from "dayjs/plugin/customParseFormat";
+import { useState } from "react";
 
 dayjs.extend(customParseFormat);
 
@@ -37,7 +37,7 @@ export function CreateScheul({
     setfilteredStudents(
       students.filter((ele) => {
         return ele.name.toLowerCase().includes(input.toLowerCase());
-      })
+      }),
     );
   };
 
@@ -154,8 +154,8 @@ export function CreateScheul({
                       parseTime(
                         value[0]?.toString() || "am",
                         value[1]?.toString() || "0",
-                        value[2]?.toString() || "0"
-                      )
+                        value[2]?.toString() || "0",
+                      ),
                     );
                   }}
                 />
@@ -172,11 +172,11 @@ export function CreateScheul({
             onClick={() => {
               if (!selectName) {
                 Toast.show("choose a student");
-                return
+                return;
               }
               const s = dayjs(
                 selectDate + " " + selectTime,
-                "DD/MM/YYYY hh:mm a"
+                "DD/MM/YYYY hh:mm a",
               );
               const res = clazzStore.createClazz({
                 student: { name: selectName },
@@ -186,7 +186,7 @@ export function CreateScheul({
                 Toast.show(res);
               } else {
                 Toast.show("success");
-                setCreateInvisible()
+                setCreateInvisible();
               }
             }}
           >

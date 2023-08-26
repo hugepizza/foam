@@ -1,15 +1,4 @@
-import {
-  Avatar,
-  Card,
-  DatePicker,
-  Input,
-  List,
-  Modal,
-  TextArea,
-  Toast,
-} from "antd-mobile";
-import { use, useState } from "react";
-import { AddOutline, AntOutline } from "antd-mobile-icons";
+import { Avatar, List } from "antd-mobile";
 
 export default function StudentDetail() {
   return (

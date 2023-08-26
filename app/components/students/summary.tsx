@@ -11,8 +11,8 @@ export default function Summary() {
     isTimestampInRange(
       ele.date,
       dayjs().subtract(7, "day").unix(),
-      dayjs().add(7, "day").unix()
-    )
+      dayjs().add(7, "day").unix(),
+    ),
   );
   const set = new Set<string>();
   rangeClazz.forEach((ele) => set.add(ele.student.name));
@@ -35,7 +35,8 @@ export default function Summary() {
                     <div>
                       <div>Tips</div>
                       <div className="font-thin">
-                        The numner of  students you have classes within prev or next 7 days.
+                        The numner of students you have classes within prev or
+                        next 7 days.
                       </div>
                     </div>
                   ),

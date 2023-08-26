@@ -1,12 +1,13 @@
 {
-  "name": "redbrew",
+  "name": "foam",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cleanup": "prettier --write . && organize-imports-cli ./app/**/*.{ts,tsx}"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.391.0",

@@ -1,25 +1,18 @@
 "use client";
-import {
-  useLocation,
-  Routes,
-  Route,
-  useNavigate,
-  MemoryRouter,
-} from "react-router-dom";
 import enUS from "antd-mobile/es/locales/en-US";
+import { MemoryRouter, Route, Routes, useLocation } from "react-router-dom";
 
-import { ConfigProvider, NavBar, SafeArea, TabBar } from "antd-mobile";
-import { CalendarOutline, TeamOutline, UserOutline } from "antd-mobile-icons";
-import Me from "./components/me/me";
+import { ConfigProvider, SafeArea } from "antd-mobile";
+import { BitTop } from "./components/layout/big_top";
+import { SmallTop } from "./components/layout/small_top";
+import { TabBarBottom } from "./components/layout/tabbar_bottom";
 import Income from "./components/me/income/income";
+import Me from "./components/me/me";
+import ProfileEdit from "./components/me/profile_edit";
+import Schedule from "./components/schedule/schedule";
 import Students from "./components/students/students";
 import StudentDetail from "./components/students/student_detail";
-import Schedule from "./components/schedule/schedule";
 import "./globals.css";
-import { SmallTop } from "./components/layout/small_top";
-import { BitTop } from "./components/layout/big_top";
-import { TabBarBottom } from "./components/layout/tabbar_bottom";
-import ProfileEdit from "./components/me/profile_edit";
 
 function Content() {
   return (
@@ -53,7 +46,7 @@ function Frame() {
 export default function Home() {
   console.log(
     "%cSorry for my terrible code 😄",
-    "font-size: 20px; color: blue; "
+    "font-size: 20px; color: blue; ",
   );
   return (
     <MemoryRouter>

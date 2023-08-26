@@ -31,7 +31,7 @@ export const isTimestampAfterNow = (timestamp: number) => {
 export const isTimestampInRange = (
   timestamp: number,
   ts1: number,
-  ts2: number
+  ts2: number,
 ) => {
   const targetTime = dayjs.unix(timestamp);
   return (

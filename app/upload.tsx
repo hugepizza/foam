@@ -15,7 +15,7 @@ export default function Upload({
   };
 
   const handleFileChange = async (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     if (!event.target.files || event.target.files.length < 1) {
       return;

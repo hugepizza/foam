@@ -1,7 +1,7 @@
 "use client";
 import { useClazzStore } from "@/app/store/clazz";
-import { isTimestampAfterNow, isTimestampBeforeNow } from "@/app/tools/time";
-import { Avatar, List } from "antd-mobile";
+import { isTimestampAfterNow } from "@/app/tools/time";
+import { List } from "antd-mobile";
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 
@@ -24,7 +24,7 @@ export function Coming({ setCreateVisible }: { setCreateVisible: () => void }) {
               {ele.student.name}
             </List.Item>
           );
-        })
+        }),
     );
   }, [clazzStore.clazz]);
 

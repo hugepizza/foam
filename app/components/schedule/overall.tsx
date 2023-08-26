@@ -1,13 +1,12 @@
-import { useEffect, useState } from "react";
-import { CardBlock } from "./cardBlock";
 import { useClazzStore } from "@/app/store/clazz";
-import dayjs from "dayjs";
 import {
   isTimestampAfterNow,
   isTimestampBeforeNow,
   isTimestampInThisWeek,
   isTimestampInTodayRange,
 } from "@/app/tools/time";
+import { useEffect, useState } from "react";
+import { CardBlock } from "./cardBlock";
 
 export function Overall() {
   const [sum, setSum] = useState<{
@@ -27,7 +26,7 @@ export function Overall() {
       coming: clazzStore.clazz.filter((ele) => isTimestampAfterNow(ele.date))
         .length,
       complated: clazzStore.clazz.filter((ele) =>
-        isTimestampBeforeNow(ele.date)
+        isTimestampBeforeNow(ele.date),
       ).length,
     });
   }, [clazzStore.clazz]);

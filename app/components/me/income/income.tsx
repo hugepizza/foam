@@ -1,6 +1,6 @@
 import { DatePicker, Input, List, Modal, TextArea } from "antd-mobile";
-import { useState } from "react";
 import { AddOutline } from "antd-mobile-icons";
+import { useState } from "react";
 
 export default function Income() {
   const income = [

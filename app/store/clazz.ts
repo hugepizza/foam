@@ -47,6 +47,6 @@ export const useClazzStore = create<ClazzStore>()(
     {
       name: key,
       version: 1,
-    }
-  )
+    },
+  ),
 );

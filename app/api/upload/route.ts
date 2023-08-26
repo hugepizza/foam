@@ -1,11 +1,10 @@
-import OSS from "ali-oss";
-import { NextRequest, NextResponse } from "next/server";
-import AWS, {
+import {
   PutObjectCommandInput,
   PutObjectCommandOutput,
   S3,
 } from "@aws-sdk/client-s3";
 import { randomUUID } from "crypto";
+import { NextRequest, NextResponse } from "next/server";
 
 const S3_ACCESS_KEY_ID = process.env.S3_ACCESS_KEY_ID || "";
 const S3_SECRET_ACCESS_KEY = process.env.S3_SECRET_ACCESS_KEY || "";
@@ -40,19 +39,19 @@ async function handle(request: NextRequest) {
       {
         url: `https://${S3_BUCKET_DOMAIN}/${key}`,
       },
-      { status: 200 }
+      { status: 200 },
     );
   }
   return NextResponse.json(
     {},
     {
       status: 401,
-    }
+    },
   );
 }
 
 async function uploadToS3(
-  obj: PutObjectCommandInput
+  obj: PutObjectCommandInput,
 ): Promise<PutObjectCommandOutput | undefined> {
   return new Promise((resolve, reject) => {
     s3.putObject(obj, (err, output) => {

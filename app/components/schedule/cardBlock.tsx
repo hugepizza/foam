@@ -1,5 +1,7 @@
 export function CardBlock({
-  title, num, cn,
+  title,
+  num,
+  cn,
 }: {
   title: string;
   num: number;

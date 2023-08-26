@@ -38,6 +38,6 @@ export const useProfileStore = create<ProfileStore>()(
     {
       name: key,
       version: 1,
-    }
-  )
+    },
+  ),
 );

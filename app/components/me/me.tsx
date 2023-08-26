@@ -1,6 +1,6 @@
-import { Avatar, Card, List, Switch } from "antd-mobile";
+import { List } from "antd-mobile";
 import { PayCircleOutline } from "antd-mobile-icons";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useProfileStore } from "../../store/profile";
 import ProfileAvatar from "./avatar";
 

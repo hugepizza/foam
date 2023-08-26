@@ -1,13 +1,12 @@
-import { Student } from "@/app/store/student";
-import { useStudentStore } from "@/app/store/student";
+import { Student, useStudentStore } from "@/app/store/student";
 import { List, Tag } from "antd-mobile";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
-import Avatar from "react-nice-avatar";
 import { useClazzStore } from "@/app/store/clazz";
 import dayjs from "dayjs";
+import Avatar from "react-nice-avatar";
 
 export default function StudnentsList() {
   const navigate = useNavigate();
@@ -17,7 +16,7 @@ export default function StudnentsList() {
   const nextClazzAt = (name: string) => {
     const now = dayjs().unix();
     const clazz = clazzStore.clazz.filter(
-      (ele) => ele.student.name === name && ele.date >= now
+      (ele) => ele.student.name === name && ele.date >= now,
     );
     if (clazz.length === 0) {
       return "-";
@@ -48,7 +47,9 @@ export default function StudnentsList() {
       }
       description=<div>
         {ele.gender && (
-          <Tag className="px-[5px]">{ele.gender === "female" ? "♀" : "♂"}</Tag>
+          <Tag className="px-[5px]">
+            {ele.gender === "female" ? "♀" : "♂"}
+          </Tag>
         )}
         {ele.from && <Tag className="mx-[1px]">{ele.from}</Tag>}
         {ele.age && <Tag className="mx-[1px]">{ele.age + "Y"}</Tag>}

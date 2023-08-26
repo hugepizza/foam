@@ -1,9 +1,9 @@
-import { Button, Form, Input, InputRef, SpinLoading, Toast } from "antd-mobile";
+import { Button, Form, Input, SpinLoading, Toast } from "antd-mobile";
 import { useProfileStore } from "../../store/profile";
 import Upload from "../../upload";
 
-import ProfileAvatar from "./avatar";
 import { useState } from "react";
+import ProfileAvatar from "./avatar";
 export default function ProfileEdit() {
   return (
     <div>

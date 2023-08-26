@@ -50,6 +50,6 @@ export const useStudentStore = create<StudentStore>()(
     {
       name: key,
       version: 1,
-    }
-  )
+    },
+  ),
 );

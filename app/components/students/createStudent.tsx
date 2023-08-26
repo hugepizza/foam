@@ -1,19 +1,11 @@
 "use client";
-import {
-  Button,
-  Form,
-  Input,
-  NumberKeyboard,
-  Popup,
-  Selector,
-  Toast,
-} from "antd-mobile";
-import dayjs from "dayjs";
-import { use, useState } from "react";
-import customParseFormat from "dayjs/plugin/customParseFormat";
 import { useStudentStore } from "@/app/store/student";
-import CuteAvatarList from "../common/cute_avatar_generate";
+import { Button, Form, Input, Popup, Selector, Toast } from "antd-mobile";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+import { useState } from "react";
 import { AvatarFullConfig } from "react-nice-avatar";
+import CuteAvatarList from "../common/cute_avatar_generate";
 
 dayjs.extend(customParseFormat);
 
