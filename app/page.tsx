@@ -21,7 +21,7 @@ function Content() {
         <Route path="/" element={<Schedule />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/students" element={<Students />} />
-        <Route path="/student/detail" element={<StudentDetail />} />
+        <Route path="/student/detail/:name" element={<StudentDetail/>} />
         <Route path="/me" element={<Me />} />
         <Route path="/me/income" element={<Income />} />
         <Route path="/me/profile_edit" element={<ProfileEdit />} />

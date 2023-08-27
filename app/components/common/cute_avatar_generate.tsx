@@ -30,27 +30,25 @@ export default function CuteAvatarList({
     setConfigs(configs);
   }, [sex]);
 
-  const avatars = useMemo(() => {
-    return configs.map((ele, i) => (
-      <div
-        key={i}
-        onClick={(e) => {
-          setSelected(i);
-          setSelectedConfig(ele);
+  const avatars = configs.map((ele, i) => (
+    <div
+      key={i}
+      onClick={(e) => {
+        setSelected(i);
+        setSelectedConfig(ele);
+      }}
+      className="mx-1"
+    >
+      <Avatar
+        className={i === selected ? "border-solid" : ""}
+        style={{
+          width: i === selected ? "76px" : "64px",
+          height: i === selected ? "76px" : "64px",
         }}
-        className="mx-1"
-      >
-        <Avatar
-          className={i === selected ? "border-solid" : ""}
-          style={{
-            width: i === selected ? "76px" : "64px",
-            height: i === selected ? "76px" : "64px",
-          }}
-          {...ele}
-        />
-      </div>
-    ));
-  }, [configs, selected]);
+        {...ele}
+      />
+    </div>
+  ));
 
   return (
     <div className="flex flex-row w-full overflow-x-auto justify-center items-center">
@@ -62,7 +60,7 @@ export default function CuteAvatarList({
 function getAllCombinations(
   gender: string,
   hairs: string[],
-  faceColors: string[],
+  faceColors: string[]
 ) {
   const results = [];
   for (let i = 0; i < hairs.length; i++) {
@@ -72,7 +70,7 @@ function getAllCombinations(
           sex: gender as Sex,
           hairStyle: hairs[i] as HairStyle,
           faceColor: faceColors[j],
-        }),
+        })
       );
     }
   }
