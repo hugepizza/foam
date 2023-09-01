@@ -1,13 +1,15 @@
 import { FloatingBubble } from "antd-mobile";
 import { EditFill } from "antd-mobile-icons";
+import { useNavigate } from "react-router-dom";
 
-export default function Float({ onClick }: { onClick: () => void }) {
+export default function Float({ to }: { to: string }) {
+  const navigate = useNavigate();
   return (
     <FloatingBubble
       axis="lock"
       style={{
         "--background": "#000000",
-        "--initial-position-top": "84vh",
+        "--initial-position-bottom": "10%",
         "--initial-position-right": "24px",
         "--size": "48px",
         "--z-index": "100",
@@ -16,7 +18,7 @@ export default function Float({ onClick }: { onClick: () => void }) {
       <EditFill
         fontSize={24}
         onClick={() => {
-          onClick();
+          navigate(to);
         }}
       />
     </FloatingBubble>

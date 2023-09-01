@@ -1,9 +1,9 @@
 import { useClazzStore } from "@/app/store/clazz";
 import {
-  isTimestampAfterNow,
-  isTimestampBeforeNow,
-  isTimestampInThisWeek,
-  isTimestampInTodayRange,
+    isTimestampAfterNow,
+    isTimestampBeforeNow,
+    isTimestampInThisWeek,
+    isTimestampInTodayRange
 } from "@/app/tools/time";
 import { useEffect, useState } from "react";
 import { CardBlock } from "./cardBlock";
@@ -31,17 +31,17 @@ export function Overall() {
     });
   }, [clazzStore.clazz]);
   return (
-    <div className="mx-4 py-2">
+    <div className="mx-4">
       <div className="flex flex-row">
-        <CardBlock title="Today" num={sum?.today} cn="mr-2"></CardBlock>
-        <CardBlock title="This Week" num={sum?.week} cn="ml-2"></CardBlock>
+        <CardBlock title="Today" num={sum?.today} cn="mr-1"></CardBlock>
+        <CardBlock title="This Week" num={sum?.week} cn="ml-1"></CardBlock>
       </div>
       <div className="flex flex-row">
-        <CardBlock title="Coming" num={sum.coming} cn="mr-2 mt-4"></CardBlock>
+        <CardBlock title="Coming" num={sum.coming} cn="mr-1 mt-2"></CardBlock>
         <CardBlock
           title="Complated"
           num={sum.complated}
-          cn="ml-2 mt-4"
+          cn="ml-1 mt-2"
         ></CardBlock>
       </div>
     </div>

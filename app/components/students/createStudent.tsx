@@ -9,13 +9,7 @@ import CuteAvatarList from "../common/cute_avatar_generate";
 
 dayjs.extend(customParseFormat);
 
-export function CreateStudent({
-  visible,
-  setCreateInvisible,
-}: {
-  visible: boolean;
-  setCreateInvisible: () => void;
-}) {
+export function CreateStudent({}: {}) {
   const studentStore = useStudentStore();
   const [name, setName] = useState<string>("");
   const [from, setFrom] = useState<string | undefined>();
@@ -61,115 +55,98 @@ export function CreateStudent({
       return;
     }
     Toast.show("success");
-    setCreateInvisible();
     resetForm();
   };
   return (
-    <Popup
-      visible={visible}
-      onMaskClick={() => {
-        setCreateInvisible();
-      }}
-      position="bottom"
-      bodyStyle={{
-        display: "flex",
-        borderTopLeftRadius: "8px",
-        borderTopRightRadius: "8px",
-        minHeight: "90vh",
-        maxHeight: "90vh",
-        background: "rgb(245, 245, 245)",
-      }}
-    >
-      <div className="flex flex-col my-8 text-lg w-full">
-        <div className="flex flex-col flex-grow w-full relative">
-          <Form mode="card">
-            <Form.Header>Create a new student</Form.Header>
-            <Form.Item className="overflow-x-auto">
-              <CuteAvatarList setSelectedConfig={setAvatar} />
-            </Form.Item>
-            <Form.Item
-              label="student name"
-              rules={[
-                { required: true, message: "Name is required", type: "email" },
-              ]}
-            >
-              <Input
-                onChange={(e) => {
-                  setName(e);
-                }}
-              />
-            </Form.Item>
-            <Form.Item>
-              <Selector
-                options={[
-                  {
-                    label: "female",
-                    value: "female",
-                  },
-                  {
-                    label: "male",
-                    value: "male",
-                  },
-                  {
-                    label: "others",
-                    value: "others",
-                  },
-                ]}
-                defaultValue={["female"]}
-                multiple={false}
-                onChange={(e) => {
-                  setGender(e[0]);
-                }}
-              />
-            </Form.Item>
-            <Form.Item label="age">
-              <Input
-                type="number"
-                onChange={(e) => {
-                  setAge(e);
-                }}
-              ></Input>
-            </Form.Item>
-            <Form.Item label="from">
-              <Input
-                clearable
-                onChange={(e) => {
-                  setFrom(e);
-                }}
-              ></Input>
-            </Form.Item>
-            <Form.Item label="occupation">
-              <Input
-                onChange={(e) => {
-                  setOccupation(e);
-                }}
-              ></Input>
-            </Form.Item>
-            <Form.Header />
-            <Form.Item label="email">
-              <Input
-                clearable
-                onChange={(e) => {
-                  setEmail(e);
-                }}
-              ></Input>
-            </Form.Item>
-          </Form>
-        </div>
-
-        <div className="flex flex-col  grow-0 mx-3">
-          <Button
-            type="submit"
-            size="large"
-            block
-            onClick={() => {
-              createStudent();
-            }}
+    <div className="flex flex-col  text-lg w-full">
+      <div className="flex flex-col flex-grow w-full relative">
+        <Form mode="card">
+          <Form.Header>Create a new student</Form.Header>
+          <Form.Item className="overflow-x-auto">
+            <CuteAvatarList setSelectedConfig={setAvatar} />
+          </Form.Item>
+          <Form.Item
+            label="student name"
+            rules={[
+              { required: true, message: "Name is required", type: "email" },
+            ]}
           >
-            OK
-          </Button>
-        </div>
+            <Input
+              onChange={(e) => {
+                setName(e);
+              }}
+            />
+          </Form.Item>
+          <Form.Item>
+            <Selector
+              options={[
+                {
+                  label: "female",
+                  value: "female",
+                },
+                {
+                  label: "male",
+                  value: "male",
+                },
+                {
+                  label: "others",
+                  value: "others",
+                },
+              ]}
+              defaultValue={["female"]}
+              multiple={false}
+              onChange={(e) => {
+                setGender(e[0]);
+              }}
+            />
+          </Form.Item>
+          <Form.Item label="age">
+            <Input
+              type="number"
+              onChange={(e) => {
+                setAge(e);
+              }}
+            ></Input>
+          </Form.Item>
+          <Form.Item label="from">
+            <Input
+              clearable
+              onChange={(e) => {
+                setFrom(e);
+              }}
+            ></Input>
+          </Form.Item>
+          <Form.Item label="occupation">
+            <Input
+              onChange={(e) => {
+                setOccupation(e);
+              }}
+            ></Input>
+          </Form.Item>
+          <Form.Header />
+          <Form.Item label="email">
+            <Input
+              clearable
+              onChange={(e) => {
+                setEmail(e);
+              }}
+            ></Input>
+          </Form.Item>
+        </Form>
       </div>
-    </Popup>
+
+      <div className="flex flex-col  grow-0 mx-3">
+        <Button
+          type="submit"
+          size="large"
+          block
+          onClick={() => {
+            createStudent();
+          }}
+        >
+          OK
+        </Button>
+      </div>
+    </div>
   );
 }

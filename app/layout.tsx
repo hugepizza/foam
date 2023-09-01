@@ -12,14 +12,14 @@ export const metadata: Metadata = {
     initialScale: 1,
     maximumScale: 1,
     minimumScale: 1,
-    // width: "device-width",
+    width: "device-width",
     viewportFit: "cover",
   },
-  appleWebApp: {
-    capable: true,
-    title: "foam",
-    statusBarStyle: "black-translucent",
-  },
+  // appleWebApp: {
+  //   capable: true,
+  //   title: "foam",
+  //   statusBarStyle: "black-translucent",
+  // },
 };
 
 export default function RootLayout({

@@ -1,9 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Avatar, {
-  AvatarFullConfig,
-  genConfig,
-  HairStyle,
-  Sex,
+    AvatarFullConfig,
+    genConfig,
+    HairStyle,
+    Sex
 } from "react-nice-avatar";
 
 export default function CuteAvatarList({
@@ -60,7 +60,7 @@ export default function CuteAvatarList({
 function getAllCombinations(
   gender: string,
   hairs: string[],
-  faceColors: string[]
+  faceColors: string[],
 ) {
   const results = [];
   for (let i = 0; i < hairs.length; i++) {
@@ -70,7 +70,7 @@ function getAllCombinations(
           sex: gender as Sex,
           hairStyle: hairs[i] as HairStyle,
           faceColor: faceColors[j],
-        })
+        }),
       );
     }
   }

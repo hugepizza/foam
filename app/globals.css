@@ -24,8 +24,7 @@ body {
 
 #bottom {
   position: fixed;
-  height: 6vh;
-  top: calc(100vh - 6vh - var(--safe-padding-bottom));
+  bottom: 0px;
   width: 100vw;
   background-color: rgb(var(--foreground-rgb));
   flex-grow: 0;

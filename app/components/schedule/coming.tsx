@@ -5,7 +5,7 @@ import { List } from "antd-mobile";
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 
-export function Coming({ setCreateVisible }: { setCreateVisible: () => void }) {
+export function Coming() {
   const [classItems, setClassItems] = useState<JSX.Element[]>();
   const clazzStore = useClazzStore();
   useEffect(() => {
@@ -24,7 +24,7 @@ export function Coming({ setCreateVisible }: { setCreateVisible: () => void }) {
               {ele.student.name}
             </List.Item>
           );
-        }),
+        })
     );
   }, [clazzStore.clazz]);
 
@@ -34,12 +34,7 @@ export function Coming({ setCreateVisible }: { setCreateVisible: () => void }) {
       header={
         <div className="flex flex-row justify-between">
           <div>Coming</div>
-          <div
-            className="flex flex-row"
-            onClick={() => {
-              setCreateVisible();
-            }}
-          ></div>
+          <div className="flex flex-row"></div>
         </div>
       }
     >

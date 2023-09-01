@@ -15,7 +15,7 @@ export default function StudnentsList() {
   const nextClazzAt = (name: string) => {
     const now = dayjs().unix();
     const clazz = clazzStore.clazz.filter(
-      (ele) => ele.student.name === name && ele.date >= now
+      (ele) => ele.student.name === name && ele.date >= now,
     );
     if (clazz.length === 0) {
       return "-";
@@ -46,7 +46,9 @@ export default function StudnentsList() {
       }
       description=<div>
         {ele.gender && (
-          <Tag className="px-[5px]">{ele.gender === "female" ? "♀" : "♂"}</Tag>
+          <Tag className="px-[5px]">
+            {ele.gender === "female" ? "♀" : "♂"}
+          </Tag>
         )}
         {ele.from && <Tag className="mx-[1px]">{ele.from}</Tag>}
         {ele.age && <Tag className="mx-[1px]">{ele.age + "Y"}</Tag>}

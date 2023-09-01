@@ -19,11 +19,11 @@ function FunctionList() {
     <List mode="card">
       <List.Item
         onClick={() => {
-          navigate("/me/income");
+          navigate("/me/payment");
         }}
         prefix={<PayCircleOutline />}
       >
-        My Imcome
+        Payment
       </List.Item>
       <List.Item prefix={<PayCircleOutline />}>Passed Classes</List.Item>
     </List>

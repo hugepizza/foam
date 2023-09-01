@@ -1,7 +1,7 @@
 import {
-  PutObjectCommandInput,
-  PutObjectCommandOutput,
-  S3,
+    PutObjectCommandInput,
+    PutObjectCommandOutput,
+    S3
 } from "@aws-sdk/client-s3";
 import { randomUUID } from "crypto";
 import { NextRequest, NextResponse } from "next/server";

@@ -2,12 +2,11 @@ import { Clazz, useClazzStore } from "@/app/store/clazz";
 import { Student, useStudentStore } from "@/app/store/student";
 import { List, Toast } from "antd-mobile";
 import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { useParams } from "react-router-dom";
 
-import Avatar from "react-nice-avatar";
-import { FileOutline } from "antd-mobile-icons";
 import dayjs from "dayjs";
+import Avatar from "react-nice-avatar";
 
 export default function StudentDetail() {
   const { name } = useParams();

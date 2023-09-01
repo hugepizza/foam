@@ -10,17 +10,7 @@ export default function Students() {
     <>
       <Summary />
       <StudnentsList />
-      <CreateStudent
-        visible={createVisible}
-        setCreateInvisible={() => {
-          setCreateVisible(false);
-        }}
-      />
-      <Float
-        onClick={() => {
-          setCreateVisible(true);
-        }}
-      />
+      <Float to="/student/create" />
     </>
   );
 }
